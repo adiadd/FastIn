@@ -1,13 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { UserAvatar } from "@/components/shared/user-avatar";
 import { PostActions } from "@/components/feed/post-actions";
+import { CommentSection } from "@/components/feed/comment-section";
+import { useFeed } from "@/components/feed/feed-provider";
 import type { Post, User } from "@/lib/types";
 
 interface PostCardProps {
   post: Post;
   author: User;
+  users: User[];
 }
 
 function formatRelativeTime(dateString: string): string {
@@ -29,7 +35,13 @@ function formatRelativeTime(dateString: string): string {
   return `${diffMonths}mo ago`;
 }
 
-export function PostCard({ post, author }: PostCardProps) {
+export function PostCard({ post, author, users }: PostCardProps) {
+  const [showComments, setShowComments] = useState(false);
+  const { getCommentsForPost } = useFeed();
+
+  const dynamicComments = getCommentsForPost(post.id);
+  const commentCount = post.comments + dynamicComments.length;
+
   return (
     <Card className="gap-0 py-0">
       {/* Author header */}
@@ -67,7 +79,14 @@ export function PostCard({ post, author }: PostCardProps) {
       {/* Stats row */}
       <div className="flex items-center gap-3 px-4 py-2 text-xs text-muted-foreground">
         {post.likes > 0 && <span>{post.likes} likes</span>}
-        {post.comments > 0 && <span>{post.comments} comments</span>}
+        {commentCount > 0 && (
+          <button
+            onClick={() => setShowComments(!showComments)}
+            className="hover:text-primary hover:underline cursor-pointer"
+          >
+            {commentCount} comments
+          </button>
+        )}
         {post.reposts > 0 && <span>{post.reposts} reposts</span>}
       </div>
 
@@ -75,8 +94,19 @@ export function PostCard({ post, author }: PostCardProps) {
 
       {/* Actions */}
       <div className="px-2 py-1">
-        <PostActions initialLikes={post.likes} />
+        <PostActions
+          initialLikes={post.likes}
+          onCommentClick={() => setShowComments(!showComments)}
+        />
       </div>
+
+      {/* Comment section */}
+      {showComments && (
+        <>
+          <Separator />
+          <CommentSection postId={post.id} users={users} />
+        </>
+      )}
     </Card>
   );
 }

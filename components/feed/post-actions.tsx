@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 
 interface PostActionsProps {
   initialLikes: number;
+  onCommentClick?: () => void;
 }
 
-export function PostActions({ initialLikes }: PostActionsProps) {
+export function PostActions({ initialLikes, onCommentClick }: PostActionsProps) {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(initialLikes);
 
@@ -38,6 +39,7 @@ export function PostActions({ initialLikes }: PostActionsProps) {
         variant="ghost"
         size="sm"
         className="flex-1 gap-1.5 text-muted-foreground"
+        onClick={onCommentClick}
       >
         <MessageCircle className="size-4" />
         <span className="text-xs font-medium">Comment</span>

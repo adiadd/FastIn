@@ -1,6 +1,7 @@
 import { users } from "./users";
 import { posts } from "./posts";
-import { User, Post } from "../types";
+import { comments } from "./comments";
+import { User, Post, Comment } from "../types";
 
 export function getUsers(): User[] {
   return users;
@@ -35,4 +36,12 @@ export function searchUsers(query: string): User[] {
 export function searchPosts(query: string): Post[] {
   const q = query.toLowerCase();
   return posts.filter((p) => p.content.toLowerCase().includes(q));
+}
+
+export function getComments(): Comment[] {
+  return comments;
+}
+
+export function getCommentsByPost(postId: string): Comment[] {
+  return comments.filter((c) => c.postId === postId);
 }

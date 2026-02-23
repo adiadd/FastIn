@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Search } from "lucide-react";
 import { NavLinks } from "./nav-links";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Navbar() {
   return (
@@ -24,6 +25,7 @@ export function Navbar() {
           <Link href="/search" className="p-2 text-muted-foreground sm:hidden">
             <Search className="h-5 w-5" />
           </Link>
+          <ThemeToggle />
         </div>
       </div>
     </header>

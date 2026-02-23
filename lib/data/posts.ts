@@ -9,6 +9,7 @@ export const posts: Post[] = [
     likes: 847,
     comments: 92,
     reposts: 156,
+    imageUrl: "https://picsum.photos/seed/p1/800/400",
     createdAt: "2025-12-15T10:30:00Z",
   },
   {
@@ -29,6 +30,7 @@ export const posts: Post[] = [
     likes: 2156,
     comments: 378,
     reposts: 524,
+    imageUrl: "https://picsum.photos/seed/p3/800/400",
     createdAt: "2025-12-13T09:15:00Z",
   },
   {
@@ -59,6 +61,7 @@ export const posts: Post[] = [
     likes: 1567,
     comments: 201,
     reposts: 345,
+    imageUrl: "https://picsum.photos/seed/p6/800/400",
     createdAt: "2025-12-10T16:30:00Z",
   },
   {
@@ -89,6 +92,7 @@ export const posts: Post[] = [
     likes: 1789,
     comments: 234,
     reposts: 412,
+    imageUrl: "https://picsum.photos/seed/p9/800/400",
     createdAt: "2025-12-07T10:00:00Z",
   },
   {
@@ -119,6 +123,7 @@ export const posts: Post[] = [
     likes: 5678,
     comments: 789,
     reposts: 1234,
+    imageUrl: "https://picsum.photos/seed/p12/800/400",
     createdAt: "2025-12-04T12:00:00Z",
   },
   {

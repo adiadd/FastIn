@@ -82,3 +82,19 @@ export interface Connection {
   status: ConnectionStatus;
   createdAt: string;
 }
+
+export interface Job {
+  id: string;
+  title: string;
+  company: string;
+  companyLogoUrl: string;
+  location: string;
+  type: "Full-time" | "Part-time" | "Contract";
+  level: "Entry" | "Mid" | "Senior" | "Lead" | "Staff" | "Principal";
+  salary?: string;
+  postedAt: string;
+  description: string;
+  requirements: string[];
+  applicants: number;
+  isEasyApply: boolean;
+}

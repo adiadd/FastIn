@@ -3,7 +3,8 @@ import { posts } from "./posts";
 import { comments } from "./comments";
 import { notifications } from "./notifications";
 import { connections } from "./connections";
-import { User, Post, Comment, Notification, Connection } from "../types";
+import { jobs } from "./jobs";
+import { User, Post, Comment, Notification, Connection, Job } from "../types";
 
 export function getUsers(): User[] {
   return users;
@@ -101,5 +102,25 @@ export function areConnected(userId1: string, userId2: string): boolean {
       c.status === "accepted" &&
       ((c.fromUserId === userId1 && c.toUserId === userId2) ||
         (c.fromUserId === userId2 && c.toUserId === userId1))
+  );
+}
+
+// Job queries
+
+export function getJobs(): Job[] {
+  return jobs;
+}
+
+export function getJobById(id: string): Job | undefined {
+  return jobs.find((j) => j.id === id);
+}
+
+export function searchJobs(query: string): Job[] {
+  const q = query.toLowerCase();
+  return jobs.filter(
+    (j) =>
+      j.title.toLowerCase().includes(q) ||
+      j.company.toLowerCase().includes(q) ||
+      j.description.toLowerCase().includes(q)
   );
 }

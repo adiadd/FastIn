@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -75,6 +76,19 @@ export function PostCard({ post, author, users }: PostCardProps) {
           {post.content}
         </p>
       </CardContent>
+
+      {/* Post image */}
+      {post.imageUrl && (
+        <div className="px-4 pt-2">
+          <Image
+            src={post.imageUrl}
+            alt="Post image"
+            width={800}
+            height={400}
+            className="w-full rounded-lg object-cover"
+          />
+        </div>
+      )}
 
       {/* Stats row */}
       <div className="flex items-center gap-3 px-4 py-2 text-xs text-muted-foreground">

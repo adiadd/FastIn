@@ -3,7 +3,7 @@ import { MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "Messaging | FastIn",
+  title: "Messaging",
 };
 
 export default function MessagingPage() {

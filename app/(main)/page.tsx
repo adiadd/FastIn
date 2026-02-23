@@ -5,7 +5,7 @@ import { FeedProvider } from "@/components/feed/feed-provider";
 import { FeedContent } from "@/components/feed/feed-content";
 
 export const metadata: Metadata = {
-  title: "Feed | FastIn",
+  title: "Feed",
 };
 
 export default function FeedPage() {

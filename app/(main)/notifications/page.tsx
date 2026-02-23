@@ -5,7 +5,7 @@ import { NotificationList } from "@/components/notifications/notification-list";
 import type { User } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Notifications | FastIn",
+  title: "Notifications",
 };
 
 export default function NotificationsPage() {

@@ -5,7 +5,7 @@ import { SearchTabs } from "@/components/search/search-tabs";
 import type { Post, User } from "@/lib/types";
 
 export const metadata = {
-  title: "Search | FastIn",
+  title: "Search",
 };
 
 export default async function SearchPage({

@@ -3,7 +3,7 @@ import { getJobs } from "@/lib/data";
 import { JobsView } from "@/components/jobs/jobs-view";
 
 export const metadata: Metadata = {
-  title: "Jobs | FastIn",
+  title: "Jobs",
 };
 
 export default function JobsPage() {

@@ -11,7 +11,7 @@ import { InvitationCard } from "@/components/network/invitation-card";
 import { SuggestionCard } from "@/components/network/suggestion-card";
 
 export const metadata: Metadata = {
-  title: "My Network | FastIn",
+  title: "My Network",
 };
 
 export default function NetworkPage() {

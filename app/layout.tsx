@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FastIn",
+  title: {
+    default: "FastIn",
+    template: "%s | FastIn",
+  },
   description: "A blazing-fast LinkedIn experience",
 };
 

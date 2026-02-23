@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-FastIn is a LinkedIn-clone web app built with Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, and shadcn/ui. Currently uses in-memory mock data (no database or auth yet). The goal is to be a blazing fast LinkedIn wrapper.
+FastIn is a LinkedIn-clone web app built with Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, and shadcn/ui. The goal is to be a blazing fast LinkedIn wrapper.
 
 ## Commands
 
@@ -32,7 +32,7 @@ FastIn is a LinkedIn-clone web app built with Next.js 16 (App Router), React 19,
 
 ### Data Layer (`lib/`)
 
-- `lib/data/users.ts` and `lib/data/posts.ts` — Mock data arrays
+- `lib/data/users.ts` and `lib/data/posts.ts` — Mock data arrays to be adjusted with real data
 - `lib/data/index.ts` — Query functions (getUsers, getUserBySlug, getPosts, searchUsers, searchPosts, etc.)
 - `lib/types.ts` — TypeScript interfaces (User, Post, Experience, Education)
 - `lib/utils.ts` — `cn()` helper (clsx + tailwind-merge)

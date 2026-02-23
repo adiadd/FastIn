@@ -53,3 +53,32 @@ export interface Comment {
   content: string;
   createdAt: string;
 }
+
+export type NotificationType =
+  | "like"
+  | "comment"
+  | "connection_request"
+  | "connection_accepted"
+  | "mention"
+  | "repost";
+
+export interface Notification {
+  id: string;
+  recipientId: string;
+  actorId: string;
+  type: NotificationType;
+  postId?: string;
+  message: string;
+  read: boolean;
+  createdAt: string;
+}
+
+export type ConnectionStatus = "pending" | "accepted";
+
+export interface Connection {
+  id: string;
+  fromUserId: string;
+  toUserId: string;
+  status: ConnectionStatus;
+  createdAt: string;
+}

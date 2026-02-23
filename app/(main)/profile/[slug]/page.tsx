@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getUsers, getUserBySlug } from "@/lib/data";
+import { getUsers, getUserBySlug, getPostsByUser } from "@/lib/data";
 import { ProfileHeader } from "@/components/profile/profile-header";
+import { ProfileActivity } from "@/components/profile/profile-activity";
 import { ProfileAbout } from "@/components/profile/profile-about";
 import { ExperienceList } from "@/components/profile/experience-list";
 import { EducationList } from "@/components/profile/education-list";
@@ -39,9 +40,12 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
     notFound();
   }
 
+  const posts = getPostsByUser(user.id);
+
   return (
     <div className="mx-auto max-w-3xl space-y-4 py-6">
       <ProfileHeader user={user} />
+      <ProfileActivity posts={posts} firstName={user.firstName} />
       <ProfileAbout about={user.about} />
       <ExperienceList experience={user.experience} />
       <EducationList education={user.education} />
